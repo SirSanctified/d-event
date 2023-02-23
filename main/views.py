@@ -51,7 +51,6 @@ class ModEventListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super(ModEventListView, self).get_context_data(**kwargs)
-        queryset = super().get_queryset()
         filter = EventFilter(self.request.GET)
         context['filter'] = filter
         return context

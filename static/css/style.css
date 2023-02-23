@@ -281,7 +281,7 @@ footer {
 }
 
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     nav#menu {
         width: 0;
     }
@@ -323,5 +323,10 @@ footer {
     .delete-page {
         box-shadow: none;
         width: 100%;
+    }
+
+    .search {
+        display: flex !important;
+        flex-direction: column-reverse !important;
     }
 }
