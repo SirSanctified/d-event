@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+    Change Participant
+{% endblock title %}
+
+{% block content %}
+    <section class="container mt-5">
+        <h1>Change Participant</h1>
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button class="btn btn-success border-0" type="submit">Save</button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

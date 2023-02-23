@@ -1,0 +1,103 @@
+{% extends 'main/base.html' %}
+{% load auth_extras %}
+{% load static %}
+
+{% block title %}
+    Profile | {{ request.user.first_name }} {{ request.user.last_name }}
+{% endblock %}
+
+{% block content %}
+    <header class="container mt-5">
+        <h1>D-Event Participant Dashboard</h1>
+        <div class="row">
+            {% for message in messages %}
+              <div class="alert-success alert">
+                  {{ message }}
+              </div>
+          {% endfor %}
+            <div class="col-md-9 col-lg-5 mt-2">
+                <article class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        {% if request.user.participant.image %}
+                            <img class="rounded-circle profile-img"  src="{{ request.user.participant.image.url }}"  alt="">
+                        {% endif %}
+                        <div>
+                            <span class="d-block">{{ request.user.username }}</span>
+                            <span class="text-muted d-block">{{ request.user.email }}</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-outline-change w-100" data-bs-toggle="modal" data-bs-target="#profile-update" data-bs-whatever="@fat">Update Profile</button>
+                        <a class="btn btn-outline-danger d-block mt-2" href="{% url 'participant_delete' request.user.participant.id %} ">Delete My Profile</a>
+                        <div class="modal fade" id="profile-update" tabindex="-1" aria-labelledby="profileUpdateLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="profileUpdateLabel">Update Profile</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                  <form method="post">
+                                      <fieldset class="form-group">
+                                          <legend class="text-md-center">Profile</legend>
+                                          {% csrf_token %}
+                                          <p class="mt-2">{{ u_form.username }}</p>
+                                          <p class="mt-2">{{ u_form.first_name }}</p>
+                                          <p class="mt-2">{{ u_form.last_name }}</p>
+                                          <p class="mt-2">{{ u_form.email }}</p>
+                                          <label>Profile Photo:</label>
+                                          <p class="mt-2">{{ p_form }}</p>
+                                          <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                              <button type="submit" class="btn btn-change">Save Changes</button>
+                                          </div>
+                                      </fieldset>
+                                  </form>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-3 mt-2">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Total Events Registered
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ request.user.participant.registered_events.count }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="container">
+        <div class="table-responsive mt-5">
+            <h3 class="text-center">Your Events</h3>
+            <table class="table table-striped table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Start Time</th>
+                        <th scope="col">End Time</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for event in request.user.participant.registered_events.all %}
+                        <tr>
+                            <td>{{ event.title }}</td>
+                            <td>{{ event.location }}</td>
+                            <td>{{ event.date }}</td>
+                            <td>{{ event.start_time }}</td>
+                            <td>{{ event.end_time }}</td>
+                            <td><a class="btn btn-danger" href="{% url 'unregister_from_event' event.id %}">Unregister</a></td>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <p class="mt-5 text-center"><a class="btn btn-change" href="{% url 'events' %}">More Events</a></p>
+    </section>
+{% endblock %}

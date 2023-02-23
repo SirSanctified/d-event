@@ -1,0 +1,64 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load replace_space %}
+
+{% block title %}
+Events
+{% endblock %}
+
+{% block content %}
+    <header class="mt-5 pt-5">
+        <div class="container w-75 mx-auto shadow-lg p-4 my-4 rounded-3">
+            <h1 class="h1 text-center text-black">
+                Find The Events That You Love
+            </h1>
+            <p class="text-center text-black">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                vitae
+                <br />
+                justo in nunc aliquet aliquam. Nulla facilisi. Sed euismod
+                <br />
+                nunc vitae nisl aliquet, at ultricies nisl aliquam.
+            </p>
+        </div>
+    </header>
+
+    <section class="container mt-5">
+        <form method="get" class="my-5 search_form">
+            {% csrf_token %}
+            <p>
+                <label for="category">Category:</label>
+                {{ filter.form.category }}
+            </p>
+            <p>
+                <label for="title">Title:</label>
+                {{ filter.form.title }}
+            </p>
+            <p>
+                <label for="location">Location:</label>
+                {{ filter.form.location }}
+            </p>
+            <button type="submit" class="btn-change btn">Search</button>
+        </form>
+        <div class="events row">
+            {% for event in events %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ event.image.url }}" alt="{{ event.title }}">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ event.title }} | {{ event.date }} | {{ event.start_time }}</h4>
+                            <p class="text-muted">{{ event.location }}</p>
+                            <p
+                                    class="card-text w-75 overflow-hidden"
+                                    style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;"
+                            >
+                                {{ event.description }}
+                            </p>
+                            <a href="{% url 'event_detail' event.id %}" class="btn btn-primary">View Event</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock content %}

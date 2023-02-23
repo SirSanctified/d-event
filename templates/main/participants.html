@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+    Participants
+{% endblock title %}
+
+{% block content %}
+    <section class="container mt-5">
+        <h1 class="mb-5">Participants</h1>
+        <div class="table-responsive">
+            <table class="table table-hover border">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Attendant</th>
+                        <th scope="col">Events</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for participant in participants %}
+                        <tr>
+                            <th scope="row">{{ participant.id }}</th>
+                            <td>{{ participant.attendant.username }}</td>
+                            <td>{{ participant.registered_events.count }}</td>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock content %}

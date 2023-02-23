@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+    Speakers
+{% endblock title %}
+
+{% block content %}
+    <section class="container mt-5">
+        <h1 class="mb-5">Speakers</h1>
+        <div class="table-responsive">
+            <table class="table table-hover border">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Presenter</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Events</th>
+                        <th scope="col">Speaking</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for speaker in speakers %}
+                        <tr>
+                            <th scope="row">{{ speaker.id }}</th>
+                            <td>{{ speaker.presenter.username }}</td>
+                            <td>{{ speaker.title }}</td>
+                            <td>{{ speaker.events.count }}</td>
+                            <td>{{ speaker.is_speaking }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock content %}

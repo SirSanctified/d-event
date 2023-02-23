@@ -1,0 +1,9 @@
+venv/
+.idea/
+__pycache__/
+d_event/mediafiles/*
+d_event/staticfiles/bootstrap-5.0.2-dist/
+d_event/static/bootstrap-5.0.2-dist/
+.env
+*.pyc
+db.sqlite3

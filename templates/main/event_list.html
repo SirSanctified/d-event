@@ -1,0 +1,65 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+    Events
+{% endblock title %}
+
+{% block content %}
+    <section class="container mt-5">
+        <h1 class="mb-5">Events</h1>
+        <form method="get" class="my-5 search_form">
+            {% csrf_token %}
+            <p>
+                <label for="category">Category:</label>
+                {{ filter.form.category }}
+            </p>
+            <p>
+                <label for="title">Title:</label>
+                {{ filter.form.title }}
+            </p>
+            <p>
+                <label for="location">Location:</label>
+                {{ filter.form.location }}
+            </p>
+            <button type="submit" class="btn-change btn">Search</button>
+        </form>
+        <div class="table-responsive">
+            <a class="btn btn-primary rounded-0 w-100" href="{% url 'event_create' %}">Add Event</a>
+            <table class="table table-hover border">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Start Time</th>
+                        <th scope="col">End Time</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Speakers</th>
+                        <th scope="col">Participants</th>
+                        <th scope="col">Active</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for event in events %}
+                        <tr>
+                            <th scope="row"><a class="text-decoration-none" href="{% url 'event_update' event.id %}">{{ event.id }}</a> </th>
+                            <td>{{ event.title }}</td>
+                            <td>{{ event.date }}</td>
+                            <td>{{ event.start_time }}</td>
+                            <td>{{ event.end_time }}</td>
+                            <td>{{ event.location }}</td>
+                            <td>{{ event.speakers.count }}</td>
+                            <td>{{ event.participants.count }}</td>
+                            <td>{{ event.is_active }}</td>
+                            <td><a class="btn btn-info" href="{% url 'event_update' event.id %}">Change</a></td>
+                            <td><a class="btn btn-danger" href="{% url 'event_delete' event.id %}">Delete</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock content %}

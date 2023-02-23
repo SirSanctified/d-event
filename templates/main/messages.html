@@ -1,0 +1,48 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+    Messages
+{% endblock title %}
+
+{% block content %}
+     <section class="container mt-5">
+        <h1 class="mb-5">Messages</h1>
+        <form method="get" class="mb-5 search_form">
+            {% csrf_token %}
+            <label for="category">Sender Email:</label>
+            {{ filter.form.sender_email }}
+            <label for="title">Body Contains:</label>
+            {{ filter.form.body }}
+            <label for="location">Received Before:</label>
+            {{ filter.form.date_received }}
+            <button type="submit" class="btn-change btn">Search</button>
+        </form>
+        <div class="table-responsive">
+            <table class="table table-hover border">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Sender Name</th>
+                        <th scope="col">Sender Email</th>
+                        <th scope="col">Date Sent</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for message in messages %}
+                        <tr>
+                            <th scope="row"><a class="text-decoration-none" href="{% url 'message_detail' message.id %}">{{ message.id }}</a> </th>
+                            <td>{{ message.sender_name }}</td>
+                            <td>{{ message.sender_email }}</td>
+                            <td>{{ message.date }}</td>
+                            <td><a class="btn btn-info" href="{% url 'message_detail' message.id %}">View</a></td>
+                            <td><a class="btn btn-danger" href="{% url 'message_delete' message.id %}">Delete</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock content %}

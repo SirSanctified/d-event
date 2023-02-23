@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+Login
+{% endblock title %}
+
+{% block content %}
+<div class="container login-form shadow-lg mt-5 p-4">
+    <h1 class="text-center">Login</h1>
+    <p class="text-center"> Welcome Back to D-event</p>
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <div class="alert alert-danger">
+                    {{ message }}
+                </div>
+            {% else %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label class="my-1" for="username">Username:</label>
+            {{ form.username }}
+        </div>
+        <div class="form-group">
+            <label for="password" class="my-1">Password:</label>
+            {{ form.password }}
+        </div>
+        <button type="submit" class="btn btn-change my-3 d-block w-25 mx-auto">Login</button>
+    </form>
+    <p>Not registered yet? <a class="text-decoration-none" href="{% url 'register' %}">Register</a></p>
+    <p>Forgot password? <a class="text-decoration-none" href="{% url 'password_reset' %}">Reset Password</a></p>
+</div>
+{% endblock content %}

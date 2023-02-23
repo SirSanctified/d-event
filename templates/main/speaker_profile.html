@@ -1,0 +1,108 @@
+{% extends 'main/base.html' %}
+{% load auth_extras %}
+{% load static %}
+
+{% block title %}
+    Profile | {{ request.user.first_name }} {{ request.user.last_name }}
+{% endblock %}
+
+{% block content %}
+    <header class="container mt-5">
+        <h1 class="mb-4s">D-Event Speaker Dashboard</h1>
+        <div class="row">
+            <div class="col-md-9 col-lg-5 mt-2">
+                <article class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        {% if request.user.speaker.image %}
+                            <img class="rounded-circle profile-img"  src="{{ request.user.speaker.image.url }}"  alt="">
+                        {% endif %}
+                        <div>
+                            <span class="d-block">{{ request.user.username }}</span>
+                            <span class="text-muted d-block">{{ request.user.email }}</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-outline-change w-100" data-bs-toggle="modal" data-bs-target="#profile-update" data-bs-whatever="@fat">Update Profile</button>
+                        <a class="btn btn-outline-danger d-block mt-2" href="{% url 'speaker_delete' request.user.speaker.id %} ">Delete My Profile</a>
+                        <div class="modal fade" id="profile-update" tabindex="-1" aria-labelledby="profileUpdateLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="profileUpdateLabel">Update Profile</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                  <form method="post">
+                                      <fieldset class="form-group">
+                                          <legend class="text-md-center">Profile</legend>
+                                          {% csrf_token %}
+                                          <p class="mt-2">{{ u_form.username }}</p>
+                                          <p class="mt-2">{{ u_form.first_name }}</p>
+                                          <p class="mt-2">{{ u_form.last_name }}</p>
+                                          <p class="mt-2">{{ u_form.email }}</p>
+                                          <p class="mt-2">{{ s_form.title }}</p>
+                                          <p class="mt-2">{{ s_form.bio }}</p>
+                                          <p class="mt-2"><label for="id_is_speaking">Are You Presenting?</label> {{ s_form.is_speaking }}</p>
+                                          <label>Profile Photo:</label>
+                                          <p class="mt-2">{{ s_form.image }}</p>
+                                          <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                              <button type="submit" class="btn btn-change">Save Changes</button>
+                                          </div>
+                                      </fieldset>
+                                  </form>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Your Events
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ request.user.speaker.events.count }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="container">
+            <h1 class="text-center mt-5">Events You Are Presenting</h1>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Start Time</th>
+                            <th scope="col">End Time</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Participants</th>
+                            <th scope="col">Active</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for event in request.user.speaker.events.all %}
+                            <tr>
+                                <th scope="row"><a class="text-decoration-none" href="{% url 'event_detail' event.id %}">{{ event.id }}</a></th>
+                                <td>{{ event.title }}</td>
+                                <td>{{ event.category.name }}</td>
+                                <td>{{ event.date }}</td>
+                                <td>{{ event.start_time }}</td>
+                                <td>{{ event.end_time }}</td>
+                                <td>{{ event.location }}</td>
+                                <td>{{ event.participants.all.count }}</td>
+                                <td>{{ event.is_active }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+    </section>
+{% endblock content %}

@@ -1,0 +1,63 @@
+{% extends 'main/base.html' %}
+{% load auth_extras %}
+{% load static %}
+
+{% block title %}
+{{ event.title }}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <div class="alert alert-danger mt-5" role="alert">
+                {{ message }}
+            </div>
+        {% else %}
+            <div class="alert alert-success mt-5" role="alert">
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <img src="{{ event.image.url }}" alt="{{ event.title }}" class="img-fluid img-thumbnail rounded-3 w-75 d-block">
+            <h1 class="mt-5">Event Details</h1>
+            <p class="mb-2 mt-5"><b>Title:</b> {{ event.title }}</p>
+            <p class="my-2"><b>Date:</b> {{ event.date }}</p>
+            <p class="my-2"><b>Start Time:</b> {{ event.start_time }}</p>
+            <p class="my-2"><b>Ending Time:</b> {{ event.end_time }}</p>
+            <p class="h6"><b>Venue:</b> {{ event.location }}</p>
+            <p class="my-2"><b>Abstract:</b> {{ event.description }}</p>
+            <p class="my-2"><b>Speakers:</b></p>
+            <ul class="list-unstyled mb-5">
+                {% for speaker in event.speakers.all %}
+                    <li>
+                        <article class="card border-0">
+                            <div class="card-header d-flex">
+                                <img src="{{ speaker.image.url }}" class="d-block img-rounded" style="border-radius: 50%; width:70px; height: 70px; object-fit: cover" alt="...">
+                                <div>
+                                    <span class="px-5 d-block"><b>{{ speaker.presenter.first_name }} {{ speaker.presenter.last_name }}</b></span>
+                                    <span class="px-5 text-muted d-block">{{ speaker.title }}</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-title">{{ speaker.bio }}</p>
+                            </div>
+                        </article>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% if request.user.is_authenticated and request.user|has_group:'participant' %}
+                {% if event in request.user.participant.registered_events.all %}
+                    <a href="{% url 'unregister_from_event' event.id %}" class="btn btn-danger">Unregister</a>
+                {% else %}
+                    <a href="{% url 'register_for_event' event.id %}" class="btn btn-primary">Register</a>
+                {% endif %}
+            {% elif not request.user.is_authenticated %}
+                    <a href="{% url 'register_for_event' event.id %}" class="btn btn-primary">Register</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

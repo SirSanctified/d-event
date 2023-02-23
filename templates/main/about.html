@@ -1,0 +1,68 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+    About Us
+{% endblock title %}
+
+{% block content %}
+    <section class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">About Us</h1>
+            </div>
+            <div class="col-md-6 mt-5">
+                <img src="{% static 'images/about.avif' %}" alt="" class="rounded-3">
+            </div>
+            <div class="col-md-6 mt-5">
+                <h3>Who We Are</h3>
+                <p>
+                    We are excited to be your go-to resource for event registration.
+                    Our website makes it easy to find and register for events in your area.
+                    We have a wide selection of events to choose from in a variety of categories, so you are sure to find something that interests you.
+                </p>
+                <p>
+                    Our mission is to make it easy for you to find and register for events that are of interest to you.
+                    We specialise in hosting and managing all types of events, from small gatherings to large scale corporate events.
+                </p>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-6 px-md-5">
+                <h3>What We Offer</h3>
+                <p>
+                    We understand that time is of the essence when it comes to event planning, and we take pride in providing
+                    a user-friendly platform for you to quickly and easily register for the events you wish t attend.
+                    We also provide customised services for event organisers to manage their events with ease.
+                </p>
+            </div>
+            <div class="col mt-5">
+                <h3>What Makes Us Unique</h3>
+                <ul class="list-unstyled mt-5">
+                    <li>
+                        <h5>Our Belief In Personal Connections</h5>
+                        <p>
+                            We believe in the power of bringing people together, and we strive to make sure that our events are
+                            fun and engaging. Our events are designed to foster connections and collaboration, and to help people
+                            learn and grow.
+                        </p>
+                    </li>
+                    <li>
+                        <h5>Our Commitment To Security</h5>
+                        <p>
+                            We are committed to providing  safe and secure environment for our users.
+                            We take security seriously, and we use the latest technologies and techniques to ensure that all your data is safe and secure.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="about-thanks col">
+                <p>
+                    Thank you for visiting our website, and we look forward to helping you find and register for events that suit your interests.
+                </p>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

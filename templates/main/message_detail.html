@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+    Messages | {{ message.id }}
+{% endblock title %}
+
+{% block content %}
+    <section class="mt-5">
+        <div class="container">
+            <div class="card border-0">
+                <div class="card-header">
+                    <h4>{{ message.sender_name }}</h4>
+                    <p>{{ message.sender_email }}</p>
+                    <p class="text-muted">{{ message.date }}</p>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ message.content }}</p>
+                </div>
+            </div>
+            <a class="btn btn-danger mt-3" href="{% url 'message_delete' message.id %}">Delete</a>
+        </div>
+    </section>
+{% endblock content %}

@@ -1,0 +1,64 @@
+{% load static %}
+{% load auth_extras %}
+
+<nav class="position-fixed" id="menu">
+    <div class="navigation h-100 container-fluid d-flex flex-column justify-content-between">
+        <div class="user d-flex align-items-center">
+            <div class="img">
+                {% if request.user|has_group:'participant' %}
+                    {% if request.user.participant.image %}
+                        <img src="{{ request.user.participant.image.url }}" alt="user">
+                    {% else %}
+                        <img src="{% static 'images/user.svg' %}" alt="profile pic">
+                    {% endif %}
+                {% elif request.user|has_group:'speaker' %}
+                    {% if request.user.speaker.image %}
+                        <img src="{{ request.user.speaker.image.url }}" alt="user">
+                    {% else %}
+                        <img src="{% static 'images/user.svg' %}" alt="profile pic">
+                    {% endif %}
+                {% else %}
+                    <img src="{% static 'images/user.svg' %}" alt="user">
+                {% endif %}
+            </div>
+            {% if request.user.is_authenticated %}
+                <div class="user_name">
+                    <h4>{{ request.user.username }}</h4>
+                </div>
+            {% endif %}
+        </div>
+        <button type="button" class="btn" id="menu-btn"><i class='bx bx-menu'></i></button>
+        <div class="links mt-5">
+            <a class="text-decoration-none" href="{% url 'home' %}"><i class='bx bxs-home'></i><span>Home</span></a>
+            {% if request.user|has_group:'mod' or request.user.is_staff %}
+                <a class="text-decoration-none" href="{% url 'mod_profile' request.user.id %}"><i class='bx bxs-user-circle' ></i><span>Profile</span></a>
+                <a class="text-decoration-none" href="{% url 'categories' %}"><i class='bx bxs-category'></i><span>Categories</span></a>
+                <a class="text-decoration-none" href="{% url 'events_list' %}"><i class='bx bxs-calendar-event'></i><span>Events</span></a>
+                <a class="text-decoration-none" href="{% url 'messages' %}"><i class='bx bxs-message'></i><span>Messages</span></a>
+                <a class="text-decoration-none" href="{% url 'speakers' %}"><i class='bx bxs-user-voice'></i><span>Speakers</span></a>
+                <a class="text-decoration-none" href="{% url 'participants' %}"><i class='bx bxs-group'></i><span>Participants</span></a>
+            {% elif request.user|has_group:'speaker' %}
+                <a class="text-decoration-none" href="{% url 'speaker_profile' request.user.id %}"><i class='bx bxs-user-circle' ></i><span>Profile</span></a>
+                <a class="text-decoration-none" href="{% url 'events' %}"><i class='bx bxs-calendar-event'></i><span>Events</span></a>
+                <a class="text-decoration-none" href="{% url 'participants' %}"><i class='bx bxs-book-reader'></i><span>About Us</span></a>
+            <a class="text-decoration-none" href="{% url 'participants' %}"><i class='bx bxs-contact'></i><span>Contact Us</span></a>
+            {% elif request.user|has_group:'participant' %}
+                <a class="text-decoration-none" href="{% url 'participant_profile' request.user.id %}"><i class='bx bxs-user-circle' ></i><span>Profile</span></a>
+                <a class="text-decoration-none" href="{% url 'events' %}"><i class='bx bxs-calendar-event'></i><span>Events</span></a>
+                <a class="text-decoration-none" href="{% url 'about' %}"><i class='bx bxs-book-reader'></i><span>About Us</span></a>
+            <a class="text-decoration-none" href="{% url 'contact' %}"><i class='bx bxs-contact'></i><span>Contact Us</span></a>
+            {% else %}
+                <a class="text-decoration-none" href="{% url 'events' %}"><i class='bx bxs-calendar-event'></i><span>Events</span></a>
+                <a class="text-decoration-none" href="{% url 'about' %}"><i class='bx bxs-book-reader'></i><span>About Us</span></a>
+            <a class="text-decoration-none" href="{% url 'contact' %}"><i class='bx bxs-contact'></i><span>Contact Us</span></a>
+            {% endif %}
+        </div>
+        <div class="auth mb-5">
+            {% if request.user.is_authenticated %}
+                <a class="text-decoration-none" href="{% url 'logout' %}" ><i class='bx bxs-log-out-circle'></i><span>Logout</span></a>
+            {% else %}
+                <a class="text-decoration-none" href="{% url 'login' %}"><i class='bx bxs-log-in-circle'></i><span>Login</span></a>
+            {% endif %}
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,94 @@
+{% extends 'main/base.html' %}
+{% load auth_extras %}
+{% load static %}
+
+{% block title %}
+    Profile | {{ request.user.first_name }} {{ request.user.last_name }}
+{% endblock %}
+
+{% block content %}
+    <header class="container mt-5 position-relative">
+        <h1 class="">D-event Moderator Dashboard</h1>
+        <hr class="mb-5">
+        <div class="row mr-2">
+            <h2 class="col-12">Events By Categories</h2>
+            <div class="col-md-12">
+                <div class="card-group">
+                    {% for category in categories %}
+                      <div class="card card_bg">
+                        <div class="card-header text-center">
+                          {{  category.name }}
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title text-center">{{ category.events.count }}</h5>
+                        </div>
+                      </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 mr-2">
+            <div class="col">
+                <div class="card card_bg">
+                    <div class="card-header text-center">
+                        Participants
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ participants.count }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card card_bg">
+                    <div class="card-header text-center">
+                        Speakers
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ speakers.count }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-change mt-5" href="/admin/">Login As Admin</a>
+    </header>
+   <section>
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <ul class="list-group admin-list mx-auto">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <div><a class="text-decoration-none" href="{% url 'categories' %}">Categories</a></div>
+                        <div class="btn-group" role="group" aria-label="actions">
+                            <a class="btn btn-success rounded-0" href="{% url 'category_create' %}">Add</a>
+                            <a class="btn btn-change rounded-0" href="{% url 'categories' %}">Change</a>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <div><a class="text-decoration-none" href="{% url 'events_list' %}">Events</a></div>
+                        <div class="btn-group" role="group" aria-label="actions">
+                            <a class="btn btn-success rounded-0" href="{% url 'event_create' %}">Add</a>
+                            <a class="btn btn-change rounded-0" href="{% url 'events_list' %}">Change</a>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <div><a class="text-decoration-none" href="{% url 'messages' %}">Messages</a></div>
+                        <div class="btn-group" role="group" aria-label="actions">
+                            <a class="btn btn-change rounded-0" href="{% url 'messages' %}">View</a>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <div><a class="text-decoration-none" href="{% url 'participants' %}">Participants</a></div>
+                        <div class="btn-group" role="group" aria-label="actions">
+                            <a class="btn btn-change rounded-0" href="{% url 'participants' %}">View</a>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <div><a class="text-decoration-none" href="{% url 'speakers' %}">Speakers</a></div>
+                        <div class="btn-group" role="group" aria-label="actions">
+                            <a class="btn btn-change rounded-0" href="{% url 'speakers' %}">View</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+   </section>
+{% endblock content %}

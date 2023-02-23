@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+    Delete Speaker
+{% endblock title %}
+
+{% block content %}
+    <section class="container delete-page mt-5">
+        <h1>Delete Speaker</h1>
+        <div class="mt-5">
+            <p>
+                Deleting your account means that it will be removed from our database entirely and
+                all your information will be lost.
+                Are you sure you want to continue?
+            </p>
+            <form method="post" class="d-flex justify-content-between">
+                {% csrf_token %}
+                <a class="btn btn-primary border-0 d-inline-block" href="{% url 'speaker_profile' request.user.id %}">No, Take Me Back</a>
+                <button type="submit" class="w-auto border-0 btn btn-danger">Yes, I am Sure</button>
+            </form>
+        </div>
+    </section>
+{% endblock content %}

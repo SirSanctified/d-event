@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+    Delete Message
+{% endblock title %}
+
+{% block content %}
+    <section class="container delete-page mt-5">
+        <h1>Delete Message</h1>
+        <div class="mt-5">
+            <p>
+                Deleting this message is irrevocable.
+                Are you sure you want to delete message from "{{ message.sender_name }}"?
+            </p>
+            <form method="post" class="w-100 d-flex justify-content-between">
+                {% csrf_token %}
+                <a class="btn btn-primary border-0 d-inline-block" href="{% url 'messages'%}">No, Take Me Back</a>
+                <button type="submit" class="w-auto border-0 btn btn-danger">Yes, I am Sure</button>
+            </form>
+        </div>
+    </section>
+{% endblock content %}
