@@ -1,5 +1,4 @@
 from datetime import datetime
-
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -22,7 +21,7 @@ class EventListView(ListView, FilterView):
     template_name = 'main/events.html'
     context_object_name = 'events'
     ordering = ['-date']
-    paginate_by = 10
+    paginate_by = 15
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -42,7 +41,7 @@ class ModEventListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     context_object_name = 'events'
     ordering = ['-date']
     login_url = reverse_lazy('login')
-    paginate_by = 10
+    paginate_by = 15
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -54,8 +53,6 @@ class ModEventListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         filter = EventFilter(self.request.GET)
         context['filter'] = filter
         return context
-
-
 
     def test_func(self):
         return self.request.user.groups.filter(name='mod').exists() or self.request.user.is_superuser
@@ -189,7 +186,7 @@ class CategoryListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     context_object_name = 'categories'
     login_url = reverse_lazy('login')
     ordering = ['name']
-    paginate_by = 10
+    paginate_by = 15
 
     def test_func(self):
         return self.request.user.groups.filter(name='mod').exists() or self.request.user.is_superuser
@@ -234,8 +231,8 @@ class SpeakerListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     template_name = 'main/speakers.html'
     context_object_name = 'speakers'
     login_url = reverse_lazy('login')
-    ordering = ['presenter__username']
-    paginate_by = 10
+    ordering = ['id']
+    paginate_by = 15
 
     def test_func(self):
         return self.request.user.groups.filter(name='mod').exists() or self.request.user.is_superuser
@@ -283,7 +280,7 @@ class ParticipantListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     login_url = reverse_lazy('login')
     context_object_name = 'participants'
     ordering = ['id']
-    paginate_by = 10
+    paginate_by = 15
 
     def test_func(self):
         return self.request.user.groups.filter(name='mod').exists() or self.request.user.is_superuser
@@ -310,7 +307,7 @@ class MessageListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     login_url = reverse_lazy('login')
     context_object_name = 'messages'
     ordering = ['-date']
-    paginate_by = 10
+    paginate_by = 15
 
     def get_queryset(self):
         queryset = super().get_queryset()
