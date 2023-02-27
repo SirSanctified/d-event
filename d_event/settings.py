@@ -31,7 +31,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     'd-event.pritchardmambambo.tech',
     'localhost',
-    '.herokuapp.com/'
+    '.herokuapp.com'
 ]
 
 
