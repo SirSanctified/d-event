@@ -19,6 +19,7 @@ from django.urls import path
 from django.contrib.auth.urls import views as auth_views
 
 from d_event import settings
+from d_event.settings import DEBUG
 from main import views
 
 urlpatterns = [
@@ -57,4 +58,7 @@ urlpatterns = [
     path('contact/', views.MessageCreateView.as_view(), name='contact'),
     path('messages/<int:pk>/delete/', views.MessageDeleteView.as_view(), name='message_delete'),
     path('about/', views.about, name='about'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+if DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
