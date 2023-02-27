@@ -31,7 +31,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     'd-event.pritchardmambambo.tech',
     'localhost',
-    'https://intense-spire-16766.herokuapp.com/'
+    '.herokuapp.com/'
 ]
 
 
