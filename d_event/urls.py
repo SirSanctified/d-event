@@ -23,7 +23,7 @@ from d_event import settings
 from d_event.settings import DEBUG
 from main import views
 
-favicon_view = RedirectView.as_view(url='/static/images/favicon.ico', permanent=True)
+favicon_view = RedirectView.as_view(url=settings.STATIC_URL + 'favicon.ico', permanent=True)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
