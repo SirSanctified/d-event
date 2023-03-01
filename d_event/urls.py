@@ -62,7 +62,4 @@ urlpatterns = [
     path('messages/<int:pk>/delete/', views.MessageDeleteView.as_view(), name='message_delete'),
     path('about/', views.about, name='about'),
     re_path(r'^favicon\.ico$', favicon_view),
-]
-
-if DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
