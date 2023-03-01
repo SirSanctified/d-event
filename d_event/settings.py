@@ -31,7 +31,8 @@ DEBUG = False
 ALLOWED_HOSTS = [
     'd-event.pritchardmambambo.tech',
     'localhost',
-    '.herokuapp.com'
+    '127.0.0.1',
+    'd-event.herokuapp.com'
 ]
 
 
@@ -143,10 +144,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'media')
 ]
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'mediafiles'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # Default primary key field type
