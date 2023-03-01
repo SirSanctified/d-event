@@ -15,12 +15,15 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from django.contrib.auth.urls import views as auth_views
+from django.views.generic import RedirectView
 
 from d_event import settings
 from d_event.settings import DEBUG
 from main import views
+
+favicon_view = RedirectView.as_view(url='/static/images/favicon.ico', permanent=True)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -58,6 +61,7 @@ urlpatterns = [
     path('contact/', views.MessageCreateView.as_view(), name='contact'),
     path('messages/<int:pk>/delete/', views.MessageDeleteView.as_view(), name='message_delete'),
     path('about/', views.about, name='about'),
+    re_path(r'^favicon\.ico$', favicon_view),
 ]
 
 if DEBUG:
