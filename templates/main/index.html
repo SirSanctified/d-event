@@ -36,6 +36,7 @@
                     Our search engine allows you to find events that are relevant to you. You can search
                     by category, location, or event title.
                 </p>
+                <a class="btn btn-change" href="{% url 'events' %}">Explore Events</a>
             </div>
         </div>
         <div class="row mt-5 align-items-center">
@@ -48,6 +49,7 @@
                     Once you find an event that you are interested in, you can register for it. You will
                     be able to see the event details and register for the event.
                 </p>
+                <a class="btn btn-change" href="{% url 'register' %}">Get Started</a>
             </div>
             <div class="col">
                 <img src="{% static 'images/register_image.avif' %}" alt="register image" class="img-fluid rounded-3">
@@ -79,32 +81,32 @@
                 <h2 class="text-capitalize">Why Choose Us?</h2>
                 <ul class="list-unstyled">
                     <li>
-                        <h3 class="text-capitalize">Easy to use interface</h3>
+                        <h3 class="text-capitalize text-purple">Easy to use interface</h3>
                         <p>
                             Our platform is designed to be user-friendly and intuitive. You can quickly and easily search and register for events in few clicks.
                         </p>
                     </li>
                     <li>
-                        <h3>Wide range of events</h3>
+                        <h3 class="text-capitalize text-purple">Wide range of events</h3>
                         <p>
                             We have a wide range of events from small gatherings to large conventions. Whatever you are looking for,
                             we are sure to have something for you.
                         </p>
                     </li>
                     <li>
-                        <h3>Free to use</h3>
+                        <h3 class="text-capitalize text-purple">Free to use</h3>
                         <p>
                             Our platform is free to use. You can register for as many events as you want without any additional fees.
                         </p>
                     </li>
                     <li>
-                        <h3>Security</h3>
+                        <h3 class="text-capitalize text-purple">Security</h3>
                         <p>
                             We take your privacy and security seriously. We use the latest security technologies to ensure that your information is safe.
                         </p>
                     </li>
                     <li>
-                        <h3>24/7 customer support</h3>
+                        <h3 class="text-capitalize text-purple">24/7 customer support</h3>
                         <p>
                             We are always here to help. If you have any questions or concerns, please feel free to contact us.
                         </p>
@@ -119,7 +121,7 @@
                 </p>
             </div>
             <div class="col-md-4 mt-sm-5 text-center">
-                <a href="{% url 'register' %}" class="btn btn-change w-50">Sign Up</a>
+                <a href="{% url 'register' %}" class="btn btn-change w-50">Get Started</a>
             </div>
         </div>
     </section>

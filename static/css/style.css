@@ -210,6 +210,10 @@ input[type='text'] {
     background: #591894;
 }
 
+.text-purple {
+    color: #591894;
+}
+
 .login-form {
     width: 50%;
     border-radius: 2em;
