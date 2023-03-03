@@ -1,6 +1,6 @@
 # D-Event
 
-D-Event is a simple full-stack web application for event registration and management. It is built using the Django framework and provides an intuitive user-interface for users
+[D-Event](https://d-event.herokuapp.com/) is a simple full-stack web application for event registration and management. It is built using the Django framework and provides an intuitive user-interface for users
 to view and search for events, register for them and unregister if needed.
 It also provides admin and moderator dashboards for managing events.
 
