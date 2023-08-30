@@ -2,67 +2,103 @@
 {% load static %}
 
 {% block title %}
-    About Us
+    About Us | D-Event
 {% endblock title %}
 
 {% block content %}
-    <section class="container mt-5">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="text-center">About Us</h1>
+    <main class="container mt-5">
+        <section class="row d-flex align-items-center">
+            <div class="col-md-6 mt-5">
+                <h2 class="fw-bold mb-4">About Us</h2>
+                <h4 class="text-black-50">Your Gateway to Extraordinary Experiences</h4>
             </div>
             <div class="col-md-6 mt-5">
-                <img src="{% static 'images/about.avif' %}" alt="" class="rounded-3">
+                <img src="{% static 'images/about.avif' %}" alt="About Us Image" class="rounded-3 img-fluid">
             </div>
-            <div class="col-md-6 mt-5">
-                <h3>Who We Are</h3>
-                <p>
-                    We are excited to be your go-to resource for event registration.
-                    Our website makes it easy to find and register for events in your area.
-                    We have a wide selection of events to choose from in a variety of categories, so you are sure to find something that interests you.
-                </p>
-                <p>
-                    Our mission is to make it easy for you to find and register for events that are of interest to you.
-                    We specialise in hosting and managing all types of events, from small gatherings to large scale corporate events.
-                </p>
+        </section>
+        <section class="row mt-5 mx-1 d-flex align-items-center justify-content-center gap-4 flex-md-row flex-column ">
+            <div class="col-md-3  card rounded-3 bg-secondary p-3 text-white text-center">
+                <h2>Events Hosted</h2>
+                <p>Over 10,000</p>
             </div>
-        </div>
-        <div class="row mt-5">
+            <div class="col-md-3 card rounded-3 bg-secondary p-3 text-white text-center">
+                <h2>Happy Users</h2>
+                <p>More than 1 million</p>
+            </div>
+            <div class="col-md-3 card rounded-3 bg-secondary p-3 text-white text-center">
+                <h2>Years in Business</h2>
+                <p>Over 5 years</p>
+            </div>
+        </section>
+        <section class="row mt-5 align-items-center register">
+            <div class="col-md-6">
+                <img src="{% static 'images/journey.avif' %}" alt="About Us Image" class="rounded-3 img-fluid">
+            </div>
             <div class="col-md-6 px-md-5">
-                <h3>What We Offer</h3>
+                <h4>Our Journey</h4>
+                <h2 class="text-black-50"> Passion, Inspiration, and a Vision of Extraordinary Experiences</h2>
                 <p>
-                    We understand that time is of the essence when it comes to event planning, and we take pride in providing
-                    a user-friendly platform for you to quickly and easily register for the events you wish t attend.
-                    We also provide customised services for event organisers to manage their events with ease.
+                    It all began with a shared passion for extraordinary experiences. In a world where moments of wonder and excitement often pass us by, we had a vision to create a platform that would connect people with events that would leave a lasting impact. And thus, D-Event was born.
                 </p>
             </div>
-            <div class="col mt-5">
-                <h3>What Makes Us Unique</h3>
-                <ul class="list-unstyled mt-5">
-                    <li>
-                        <h5>Our Belief In Personal Connections</h5>
-                        <p>
-                            We believe in the power of bringing people together, and we strive to make sure that our events are
-                            fun and engaging. Our events are designed to foster connections and collaboration, and to help people
-                            learn and grow.
-                        </p>
-                    </li>
-                    <li>
-                        <h5>Our Commitment To Security</h5>
-                        <p>
-                            We are committed to providing  safe and secure environment for our users.
-                            We take security seriously, and we use the latest technologies and techniques to ensure that all your data is safe and secure.
-                        </p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="row mt-5">
-            <div class="about-thanks col">
+        </section>
+        <section class="row mt-5 align-items-center">
+            <div class="col-md-6 px-md-5">
+                <h4>Igniting the Spark</h4>
+                <h2 class="text-black-50">Fueling the Desire for Unforgettable Moments</h2>
                 <p>
-                    Thank you for visiting our website, and we look forward to helping you find and register for events that suit your interests.
+                    Driven by our own thirst for adventure and the belief that life is meant to be filled with unforgettable moments, we set out on a mission to curate a diverse range of events that would ignite the spark of wonder within each individual. From heart-pounding concerts that make your soul soar to thought-provoking conferences that challenge your perspectives, we wanted to offer something for everyone.
                 </p>
             </div>
-        </div>
-    </section>
+            <div class="col-md-6">
+                <img src="{% static 'images/spark.avif' %}" alt="About Us Image" class="rounded-3 img-fluid">
+            </div>
+        </section>
+        <section class="row mt-5 align-items-center col-reverse register">
+            <div class="col-md-6">
+                <img src="{% static 'images/connections.avif' %}" alt="About Us Image" class="rounded-3 img-fluid">
+            </div>
+            <div class="col-md-6 px-md-5">
+                <h4>Building Connections</h4>
+                <h2 class="text-black-50">Creating a Vibrant Community of Event-Goers</h2>
+                <p>
+                    We quickly realized that the true magic of events lies not just in the experiences themselves, but in the connections forged with like-minded individuals. We wanted to build a vibrant community where event-goers could come together, share their passions, and create lasting memories. D-Event became a place where people from all walks of life could connect, inspire, and support one another on their event-going journeys.
+                </p>
+        </section>
+        <section class="row mt-5 align-items-center">
+            <div class="col-md-6">
+                <h4>Guided by Excellence</h4>
+                <h2 class="text-black-50">Elevating the Event-Going Journey</h2>
+                <p>
+                    With a commitment to excellence, we continuously strive to enhance the event-going journey. Our platform is designed to provide seamless ticketing, personalized event recommendations, and reliable customer support. We listen to our users' feedback and continuously innovate to ensure that their experience with D-Event is nothing short of exceptional.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img src="{% static 'images/excellence.avif' %}" alt="About Us Image" class="rounded-3 img-fluid">
+            </div>
+        </section>
+        <section class="row mt-5 align-items-center col-reverse register">
+            <div class="col-md-6">
+                <img src="{% static 'images/services.avif' %}" alt="About Us Image" class="rounded-3 img-fluid">
+            </div>
+            <div class="col-md-6 px-md-5">
+                <h4>Our Services</h4>
+                <h2 class="text-black-50">Unlock a World of Extraordinary Event Experiences</h2>
+                <p>
+                    At D-Event, we strive to provide a comprehensive suite of services that unlock a world of extraordinary event experiences. Discover the perfect event through our event discovery service, where you can uncover hidden gems and must-attend experiences. Receive personalized event recommendations tailored to your interests, and engage with a vibrant community of like-minded event-goers. Let us enhance your event journey with our range of services, ensuring that every moment is unforgettable and every experience is extraordinary.
+                </p>
+                <a href="{% url 'events' %}" class="btn btn-outline mt-2">Discover Events</a>
+            </div>
+        </section>
+        <section class="d-flex align-items-center justify-content-center flex-column mt-5">
+            <div class="text-center">
+                <h4>Join the Adventure</h4>
+                <h2 class="text-black-50">Your Story Awaits</h2>
+                <p>
+                    Today, we invite you to join us on this extraordinary adventure. Discover the events that fuel your passion, connect with a vibrant community of fellow event-goers, and create memories that will last a lifetime. Let D-Event be your guide as we redefine the way you explore, indulge, and connect with the world of events.
+                </p>
+                <a class="btn btn-change w-25" href="{% url 'register' %}">Join Us</a>
+            </div>
+        </section>
+    </main>
 {% endblock content %}

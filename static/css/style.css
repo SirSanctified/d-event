@@ -385,4 +385,8 @@ footer {
         gap: 1rem;
         flex-direction: column-reverse !important;
     }
+    .col-reverse {
+        flex-direction: column-reverse !important;
+        gap: 1rem;
+    }
 }
