@@ -1,128 +1,166 @@
-{% extends 'main/base.html' %}
-{% load static %}
+{% extends 'main/base.html' %} {% load static %} {% block title %} D-Event -
+Discover and Register for Exciting Events {% endblock %} {% block content %}
+<section class="home">
+  <div
+    class="w-100 d-flex flex-column align-items-center justify-content-center h-100"
+  >
+    <h1 class="text-capitalize text-black-50 m-3">
+      Discover and Register for Exciting Events!
+    </h1>
+    <h3 class="mb-3 text-black-50">
+      Your one-stop platform to find and sign up for the best events in town
+    </h3>
+    <div class="d-flex flex-lg-row flex-column row-gap-4 gap-4">
+      <a
+        href="{% url 'register' %}"
+        rel="noopener noreferrer"
+        class="btn btn-lg btn-hero g-row-4 g-col-4"
+        >Sign Up Now</a
+      >
+      <a
+        href="{% url 'about' %}"
+        rel="noopener noreferrer"
+        class="btn btn-lg btn-outline"
+        >Learn More</a
+      >
+    </div>
+  </div>
+</section>
+<section class="container">
+  <div class="row mt-5 align-items-center search">
+    <div class="col-md-6">
+      <h1 class="text-capitalize">Discover the Best Events in One Place</h1>
+      <h3>Simplify your event search and registration process with D-event.</h3>
+      <p>
+        With D-event, you can easily find and register for a wide range of
+        exciting events happening around you. From concerts and conferences to
+        workshops and sports tournaments, our user-friendly platform makes event
+        discovery quick and hassle-free. Say goodbye to endless searching on
+        multiple websites - D-event has everything you need in one place. Sign
+        up now to never miss out on your next unforgettable experience.
+      </p>
+      <a class="btn btn-change" href="{% url 'events' %}">Explore Events</a>
+    </div>
+    <div class="col-md-6">
+      <img
+        src="{% static 'images/search_image.avif' %}"
+        alt="search image"
+        class="img-fluid rounded"
+      />
+    </div>
+  </div>
+</section>
+<section class="container">
+  <div class="row mt-5 align-items-center register">
+    <div class="col-md-6">
+        <img
+          src="{% static 'images/register-image.avif' %}"
+          alt="register image"
+          class="img-fluid rounded-3"
+        />
+      </div>
 
-{% block title %}
-    Welcome to D-Event
-{% endblock %}
-
-{% block content %}
-    <section class="container">
-        <div class="row mt-5 align-items-center">
-            <div class="col-md-6">
-                <h1 class="text-capitalize">
-                    Welcome to d-Event!
-                </h1>
-                <h3>We are excited to have you join us for an engaging and inspiring experience.</h3>
-                <p>
-                    Here at D-Event, we know that it can be difficult to find the perfect event for you.
-                    That's why we've created a platform that allows you to find and register for events that
-                    are tailored to your interests.
-                </p>
-            </div>
-            <div class="col">
-                <img src="{% static 'images/landing_page_image.avif' %}" alt="landing page image" class="img-fluid">
-            </div>
+    <div class="col-md-6 mb-sm-3">
+      <h1 class="text-capitalize">Register for Unforgettable Events</h1>
+      <h3>Unlock Your World of Excitement: Register for Events That Fuel Your Passion</h3>
+      <p>
+        Take the next step towards immersing yourself in unforgettable experiences by registering for the events that capture your interest. At D-Event, we offer a seamless registration process that allows you to secure your spot at the events you love. Join a community of passionate event-goers, receive important updates, and prepare to embark on a journey filled with excitement and lasting memories. Don't miss out—register for your preferred events today and get ready to indulge in the experiences that fuel your passion.
+      </p>
+      <a class="btn btn-change" href="{% url 'register' %}">Get Started</a>
+    </div>
+  </div>
+</section>
+<section class="container">
+  <div class="row mt-5 align-items-center search">
+    <div class="col">
+      <h1 class="text-capitalize">Attend Events</h1>
+      <h3>Attend events that you have registered for.</h3>
+      <p>
+        Once you have registered for an event, you will be able to see the event
+        details and attend the event. You will be able to see the event details
+        and attend the event.
+      </p>
+    </div>
+    <div class="col-md-6">
+        <img
+          src="{% static 'images/attend.avif' %}"
+          alt="attend image"
+          class="img-fluid rounded"
+        />
+      </div>
+  </div>
+</section>
+<section class="container">
+  <div class="row mt-5 align-content-center justify-content-center">
+    <h1 class="text-capitalize text-bold pt-3 mb-5">
+        Simplify Your Event Registration Process
+    </h1>
+    <div class="col-lg-4 my-auto">
+        <h1 class="text-center text-purple">
+            <i class='bx bx-star'></i>
+        </h1>
+        <h3 class="text-capitalize text-black-50 text-center ">Quick and Hassle-Free Registration</h3>
+      <p class="text-center">
+        Say goodbye to long registration forms and complicated processes. With just a few clicks, secure your spot and receive all the necessary event details directly in your inbox.
+      </p>
+    </div>
+    <div class="col-lg-4 my-auto">
+        
+        <h1 class="text-center text-purple">
+            <i class='bx bx-check-circle'></i></h1>
+        <h3 class="text-capitalize text-black-50 text-center">Discover a Wide Range of Events</h3>
+        <p class="text-center">
+            Gain access to a vast selection of events across various categories and interests. From local gatherings to international festivals, D-Event offers a diverse range of options. 
+        </p>
+    </div>
+    <div class="col-lg-4 my-auto">
+        
+        <h1 class="text-center text-purple">
+            <i class='bx bx-support'></i></h1>
+        <h3 class="text-capitalize text-black-50 text-center">Responsive Customer Support</h3>
+        <p class="text-center">
+            Our dedicated support team is here to assist you. Whether you have questions, concerns, or need assistance, we strive to provide prompt and responsive customer support to ensure your satisfaction. 
+        </p>
+    </div>
+    </div>
+</section>
+<section class="container">
+    <div class="row mt-sm-5 gap-4 d-flex align-items-center justify-content-center">
+      <h1>Hear What Our Event-Goers Are Saying</h1>
+      <p class="h5 text-black-50">Discover the Impact of Unforgettable Experiences through Their Words</p>
+      <div class="col-lg-4 t-card">
+        <div class="d-flex align-items-baseline">
+        <img src="{% static 'images/sarah.avif' %}" alt="Sarah Mahan" class="testimonial-img">
+        <p class="h6 mx-4 text-black-50">Sarah Mahan</p>
         </div>
-        <div class="row mt-5 align-items-center search">
-            <div class="col-md-6">
-                <img src="{% static 'images/search_image.svg' %}" alt="search image" class="img-fluid">
-            </div>
-            <div class="col-md-6">
-                <h1 class="text-capitalize">
-                    Find Events
-                </h1>
-                <h3>Search for events by category, location, or title.</h3>
-                <p>
-                    Our search engine allows you to find events that are relevant to you. You can search
-                    by category, location, or event title.
-                </p>
-                <a class="btn btn-change" href="{% url 'events' %}">Explore Events</a>
-            </div>
+        <p class="h5">Transformative Discoveries and Broadened Horizons</p>
+        <p><i class='bx bxs-quote-alt-left'></i>I can't express how grateful I am for D-Event. Their personalized recommendations have introduced me to events I never would have discovered otherwise. From thought-provoking conferences to art exhibitions that touch the soul, I've had transformative experiences that have broadened my horizons. Thank you, D-Event!</p>
+      </div>
+      <div class="col-lg-4 t-card">
+        <div class="d-flex align-items-baseline">
+        <img src="{% static 'images/alex.avif' %}" alt="Alex Togo" class="testimonial-img">
+        <p class="h6 mx-4 text-black-50">Alex Togo</p>
         </div>
-        <div class="row mt-5 align-items-center">
-            <div class="col-md-6 mb-sm-3">
-                <h1 class="text-capitalize">
-                    Register for Events
-                </h1>
-                <h3>Register for events that you are interested in.</h3>
-                <p>
-                    Once you find an event that you are interested in, you can register for it. You will
-                    be able to see the event details and register for the event.
-                </p>
-                <a class="btn btn-change" href="{% url 'register' %}">Get Started</a>
-            </div>
-            <div class="col">
-                <img src="{% static 'images/register_image.avif' %}" alt="register image" class="img-fluid rounded-3">
-            </div>
+        <p class="h5">Thrilling Sports Experiences Made Easy</p>
+        <p><i class='bx bxs-quote-alt-left'></i>I've been using D-Event for all my sports event tickets, and they never disappoint. The process is simple, the ticket options are diverse, and the customer support is top-notch. Being able to cheer for my favorite teams live has added a whole new level of excitement to my life. I highly recommend D-Event to all sports enthusiasts!</p>
+      </div>
+      <div class="col-lg-4 t-card">
+        <div class="d-flex align-items-baseline">
+        <img src="{% static 'images/mercy.avif' %}" alt="Mercy Chakari" class="testimonial-img">
+        <p class="h6 mx-4 text-black-50">Mercy Chakari</p>
         </div>
-        <div class="row mt-5 align-items-center search">
-            <div class="col-md-6">
-                <img src="{% static 'images/attend_image.svg' %}" alt="attend image" class="img-fluid">
-            </div>
-            <div class="col">
-                <h1 class="text-capitalize">
-                    Attend Events
-                </h1>
-                <h3>Attend events that you have registered for.</h3>
-                <p>
-                    Once you have registered for an event, you will be able to see the event details and
-                    attend the event. You will be able to see the event details and attend the event.
-                </p>
-            </div>
-        </div>
-        <div class="row mt-5 align-content-center justify-content-center">
-            <div class="col-md-6 my-auto">
-                <p>
-                    Our website is designed to make the event registration process as straightforward and stress-free as possible.
-                    With our easy-to-use interface, you can quickly and easily search for events, view event details, and register for events of your choice.
-                </p>
-            </div>
-            <div class="col mt-sm-5">
-                <h2 class="text-capitalize">Why Choose Us?</h2>
-                <ul class="list-unstyled">
-                    <li>
-                        <h3 class="text-capitalize text-purple">Easy to use interface</h3>
-                        <p>
-                            Our platform is designed to be user-friendly and intuitive. You can quickly and easily search and register for events in few clicks.
-                        </p>
-                    </li>
-                    <li>
-                        <h3 class="text-capitalize text-purple">Wide range of events</h3>
-                        <p>
-                            We have a wide range of events from small gatherings to large conventions. Whatever you are looking for,
-                            we are sure to have something for you.
-                        </p>
-                    </li>
-                    <li>
-                        <h3 class="text-capitalize text-purple">Free to use</h3>
-                        <p>
-                            Our platform is free to use. You can register for as many events as you want without any additional fees.
-                        </p>
-                    </li>
-                    <li>
-                        <h3 class="text-capitalize text-purple">Security</h3>
-                        <p>
-                            We take your privacy and security seriously. We use the latest security technologies to ensure that your information is safe.
-                        </p>
-                    </li>
-                    <li>
-                        <h3 class="text-capitalize text-purple">24/7 customer support</h3>
-                        <p>
-                            We are always here to help. If you have any questions or concerns, please feel free to contact us.
-                        </p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-md-8 mt-sm-3 align-items-center">
-                <p class="h5">
-                    Sign up today to start exploring our selection of events and register for the ones that interest you!
-                </p>
-            </div>
-            <div class="col-md-4 mt-sm-5 text-center">
-                <a href="{% url 'register' %}" class="btn btn-change w-50">Get Started</a>
-            </div>
-        </div>
+        <p class="h5">Creating Unforgettable Memories with Friends and Cultures</p>
+        <p><i class='bx bxs-quote-alt-left'></i>D-Event has become my go-to platform for planning our annual girls' trip. The variety of festivals and cultural events available is amazing. Every year, we discover new destinations and immerse ourselves in different cultures, all thanks to D-Event. It has become an essential part of our travel planning.</p>
+      </div>
+    </div>
+</div>
+</section>
+    <section class="container mt-5 d-flex flex-column align-items-center justify-content-center">
+      <p class="h1 text-center">
+        Experience the Extraordinary - Join D-Event Today!
+      </p>
+      <p class="text-center">Experience the magic of unforgettable events – join D-Event today and unlock a world of excitement, connection, and endless possibilities.</p>
+        <a href="{% url 'register' %}" class="btn btn-change w-50">Get Started</a>
     </section>
+
 {% endblock content%}
