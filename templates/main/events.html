@@ -7,16 +7,8 @@ Events
 {% endblock %}
 
 {% block content %}
-    <header class="mt-5 pt-5">
-        <div class="container w-75 mx-auto shadow-lg p-4 my-4 rounded-3">
-            <p class="h5 text-center text-black">
-                Explore from our pool of events and find the ones that interest you!
-            </p>
-        </div>
-    </header>
-
     <section class="container mt-5">
-        <form method="get" class="my-5 search_form">
+        <form method="get" class="my-5 search_form events_search">
             {% csrf_token %}
             <p>
                 <label for="category">Category:</label>
@@ -25,10 +17,6 @@ Events
             <p>
                 <label for="title">Title:</label>
                 {{ filter.form.title }}
-            </p>
-            <p>
-                <label for="location">Location:</label>
-                {{ filter.form.location }}
             </p>
             <button type="submit" class="btn-change btn">Search</button>
         </form>

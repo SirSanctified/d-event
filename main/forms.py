@@ -140,4 +140,4 @@ class MessageForm(ModelForm):
         super(MessageForm, self).__init__(*args, **kwargs)
         self.fields['sender_name'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Your Full Name'})
         self.fields['sender_email'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Your Email'})
-        self.fields['content'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Your Message'})
+        self.fields['content'].widget.attrs.update({'rows': '5', 'class': 'form-control', 'placeholder': 'Your Message'})

@@ -6,7 +6,7 @@
 {% endblock title %}
 
 {% block content %}
-    <main class="container mt-5">
+    <main class="container mt-5 d-flex flex-column align-items-center w-75 about">
         <section class="row d-flex align-items-center">
             <div class="col-md-6 mt-5">
                 <h2 class="fw-bold mb-4">About Us</h2>
@@ -30,65 +30,54 @@
                 <p>Over 5 years</p>
             </div>
         </section>
-        <section class="row mt-5 align-items-center register">
-            <div class="col-md-6">
-                <img src="{% static 'images/journey.avif' %}" alt="About Us Image" class="rounded-3 img-fluid">
-            </div>
-            <div class="col-md-6 px-md-5">
-                <h4>Our Journey</h4>
+        <section class="mt-5 align-items-center w-100">
+            <img src="{% static 'images/journey.avif' %}" alt="About Us Image" class="d-block mx-auto rounded-3 img-journey">
+            <div class="">
+                <h4 class="mt-3">Our Journey</h4>
                 <h2 class="text-black-50"> Passion, Inspiration, and a Vision of Extraordinary Experiences</h2>
                 <p>
                     It all began with a shared passion for extraordinary experiences. In a world where moments of wonder and excitement often pass us by, we had a vision to create a platform that would connect people with events that would leave a lasting impact. And thus, D-Event was born.
                 </p>
             </div>
         </section>
-        <section class="row mt-5 align-items-center">
-            <div class="col-md-6 px-md-5">
-                <h4>Igniting the Spark</h4>
-                <h2 class="text-black-50">Fueling the Desire for Unforgettable Moments</h2>
-                <p>
-                    Driven by our own thirst for adventure and the belief that life is meant to be filled with unforgettable moments, we set out on a mission to curate a diverse range of events that would ignite the spark of wonder within each individual. From heart-pounding concerts that make your soul soar to thought-provoking conferences that challenge your perspectives, we wanted to offer something for everyone.
-                </p>
-            </div>
-            <div class="col-md-6">
-                <img src="{% static 'images/spark.avif' %}" alt="About Us Image" class="rounded-3 img-fluid">
-            </div>
+        <section class="mt-5 align-items-center w-100">
+            <h4>Igniting the Spark</h4>
+            <h2 class="text-black-50">Fueling the Desire for Unforgettable Moments</h2>
+            <p>
+                Driven by our own thirst for adventure and the belief that life is meant to be filled with unforgettable moments, we set out on a mission to curate a diverse range of events that would ignite the spark of wonder within each individual. From heart-pounding concerts that make your soul soar to thought-provoking conferences that challenge your perspectives, we wanted to offer something for everyone.
+            </p>
         </section>
-        <section class="row mt-5 align-items-center col-reverse register">
-            <div class="col-md-6">
-                <img src="{% static 'images/connections.avif' %}" alt="About Us Image" class="rounded-3 img-fluid">
-            </div>
-            <div class="col-md-6 px-md-5">
-                <h4>Building Connections</h4>
-                <h2 class="text-black-50">Creating a Vibrant Community of Event-Goers</h2>
-                <p>
-                    We quickly realized that the true magic of events lies not just in the experiences themselves, but in the connections forged with like-minded individuals. We wanted to build a vibrant community where event-goers could come together, share their passions, and create lasting memories. D-Event became a place where people from all walks of life could connect, inspire, and support one another on their event-going journeys.
-                </p>
+        <section class="mt-5 align-items-center w-100">
+            <img src="{% static 'images/connections.avif' %}" alt="About Us Image" class="rounded-3 img-journey">
+            <h4 class="mt-3">Building Connections</h4>
+            <h2 class="text-black-50">Creating a Vibrant Community of Event-Goers</h2>
+            <p>
+                We quickly realized that the true magic of events lies not just in the experiences themselves, but in the connections forged with like-minded individuals. We wanted to build a vibrant community where event-goers could come together, share their passions, and create lasting memories. D-Event became a place where people from all walks of life could connect, inspire, and support one another on their event-going journeys.
+            </p>
         </section>
-        <section class="row mt-5 align-items-center">
-            <div class="col-md-6">
-                <h4>Guided by Excellence</h4>
-                <h2 class="text-black-50">Elevating the Event-Going Journey</h2>
-                <p>
-                    With a commitment to excellence, we continuously strive to enhance the event-going journey. Our platform is designed to provide seamless ticketing, personalized event recommendations, and reliable customer support. We listen to our users' feedback and continuously innovate to ensure that their experience with D-Event is nothing short of exceptional.
-                </p>
-            </div>
+        <section class="mt-5 align-items-center w-100">
+            <h4>Guided by Excellence</h4>
+            <h2 class="text-black-50">Elevating the Event-Going Journey</h2>
+            <p>
+                With a commitment to excellence, we continuously strive to enhance the event-going journey. Our platform is designed to provide seamless ticketing, personalized event recommendations, and reliable customer support. We listen to our users' feedback and continuously innovate to ensure that their experience with D-Event is nothing short of exceptional.
+            </p>
+            <!-- </div>
             <div class="col-md-6">
                 <img src="{% static 'images/excellence.avif' %}" alt="About Us Image" class="rounded-3 img-fluid">
-            </div>
+            </div> -->
         </section>
-        <section class="row mt-5 align-items-center col-reverse register">
-            <div class="col-md-6">
-                <img src="{% static 'images/services.avif' %}" alt="About Us Image" class="rounded-3 img-fluid">
-            </div>
-            <div class="col-md-6 px-md-5">
-                <h4>Our Services</h4>
-                <h2 class="text-black-50">Unlock a World of Extraordinary Event Experiences</h2>
-                <p>
-                    At D-Event, we strive to provide a comprehensive suite of services that unlock a world of extraordinary event experiences. Discover the perfect event through our event discovery service, where you can uncover hidden gems and must-attend experiences. Receive personalized event recommendations tailored to your interests, and engage with a vibrant community of like-minded event-goers. Let us enhance your event journey with our range of services, ensuring that every moment is unforgettable and every experience is extraordinary.
-                </p>
-                <a href="{% url 'events' %}" class="btn btn-outline mt-2">Discover Events</a>
-            </div>
+        <section class="mt-5 align-items-center w-100">
+            <!-- <div class="col-md-6"> -->
+            <img src="{% static 'images/services.avif' %}" alt="About Us Image" class="rounded-3 img-journey">
+            <!-- </div> -->
+            <!-- <div class="col-md-6 px-md-5"> -->
+            <h4 class="mt-3">Our Services</h4>
+            <h2 class="text-black-50">Unlock a World of Extraordinary Event Experiences</h2>
+            <p>
+                At D-Event, we strive to provide a comprehensive suite of services that unlock a world of extraordinary event experiences. Discover the perfect event through our event discovery service, where you can uncover hidden gems and must-attend experiences. Receive personalized event recommendations tailored to your interests, and engage with a vibrant community of like-minded event-goers. Let us enhance your event journey with our range of services, ensuring that every moment is unforgettable and every experience is extraordinary.
+            </p>
+            <a href="{% url 'events' %}" class="btn btn-outline mt-2 w-25">Discover Events</a>
+            <!-- </div> -->
         </section>
         <section class="d-flex align-items-center justify-content-center flex-column mt-5">
             <div class="text-center">
