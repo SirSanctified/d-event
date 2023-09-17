@@ -159,7 +159,7 @@ input[type="text"] {
   border-radius: 0.3em;
   padding-inline: 2em;
   background: #fff;
-  background: url("/static/images/landing_page_image.avif") no-repeat center
+  background: no-repeat center
     center/cover;
 }
 
